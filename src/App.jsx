@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import MainLayout from "./pages/MainLayout";
 
+import "typeface-roboto-condensed";
+import "typeface-poppins";
+
 function App() {
   return (
     <BrowserRouter>

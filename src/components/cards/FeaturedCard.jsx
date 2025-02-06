@@ -12,11 +12,11 @@ const FeaturedCard = ({
 }) => {
   return (
     <div className={dynamicClass}>
-      <div className="flex h-[200px] w-full items-center justify-center rounded-lg bg-[#E4E3E3]">
+      <div className="flex h-[180px] w-full items-center justify-center rounded-lg bg-[#E4E3E3] p-4">
         <img
           src={productImage}
           alt={productName}
-          className="object-fit w-full"
+          className="object-fit h-full w-full"
         />
       </div>
       <div className="flex flex-col gap-1">

@@ -1,9 +1,12 @@
 import React from "react";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import SectionHeading from "../../components/headings/SectionHeading";
-import { RiStarFill } from "@remixicon/react";
+import { RiStarFill, RiVerifiedBadgeFill } from "@remixicon/react";
 import FeaturedCard from "../../components/cards/FeaturedCard";
 import OutlineButton from "../../components/buttons/OutlineButton";
+import CategoryCard from "../../components/cards/CategoryCard";
+import ReviewCard from "../../components/cards/ReviewCard";
+import SectionContainer from "../../components/containers/SectionContainer";
 
 const HomeStat = ({ number, text }) => {
   return (
@@ -18,7 +21,7 @@ const HomeStat = ({ number, text }) => {
 
 const Home = () => {
   return (
-    <div className="col-span-4 grid gap-y-[54px]">
+    <div className="col-span-4 grid gap-y-[54px] md:col-span-8">
       <section className="grid gap-y-[32px] md:grid-cols-[2.5fr_1.5fr] md:gap-6">
         <div className="flex flex-col gap-y-[28px]">
           <div>
@@ -50,7 +53,7 @@ const Home = () => {
           alt=""
           className="-mx-[20px]"
         /> */}
-        <div className="-mx-[20px] w-screen">
+        {/* <div className="-mx-[20px] w-screen overflow-x-hidden">
           <img
             src="/assets/images/home/hero-img.png"
             alt=""
@@ -88,14 +91,14 @@ const Home = () => {
               className="w-[70px]"
             />
           </div>
-        </div>
+        </div> */}
       </section>
-      <section className="grid gap-y-[28px]">
+      <SectionContainer>
         <SectionHeading
           text={"Stylist's Choice"}
           dynamicClass={"text-center"}
         />
-        <div className="grid grid-cols-4 gap-x-4">
+        <div className="grid grid-cols-4 gap-x-4 md:grid-cols-8">
           <FeaturedCard
             productName={"Cotton Shirt"}
             productPrice={"$120"}
@@ -110,11 +113,11 @@ const Home = () => {
           />
         </div>
         <OutlineButton text={"View All"} />
-      </section>
+      </SectionContainer>
 
-      <section className="grid gap-y-[28px]">
+      <SectionContainer>
         <SectionHeading text={"New Arrivals"} dynamicClass={"text-center"} />
-        <div className="grid grid-cols-4 gap-x-4">
+        <div className="grid grid-cols-4 gap-x-4 md:grid-cols-8">
           <FeaturedCard
             productName={"CHIC Designed Shirt"}
             productPrice={"$330"}
@@ -132,10 +135,10 @@ const Home = () => {
           />
         </div>
         <OutlineButton text={"View All"} />
-      </section>
-      <section className="grid gap-y-[28px]">
+      </SectionContainer>
+      <SectionContainer>
         <SectionHeading text={"Hot Items"} dynamicClass={"text-center"} />
-        <div className="grid grid-cols-4 gap-x-4">
+        <div className="grid grid-cols-4 gap-x-4 md:grid-cols-8">
           <FeaturedCard
             productName={"Cotton Crew Neck"}
             productPrice={"$170"}
@@ -153,7 +156,70 @@ const Home = () => {
           />
         </div>
         <OutlineButton text={"View All"} />
-      </section>
+      </SectionContainer>
+
+      <SectionContainer>
+        <SectionHeading text={"Find your Fit"} dynamicClass={"text-center"} />
+        <div className="grid gap-y-[36px]">
+          <CategoryCard
+            cardText={"Casual"}
+            cardImage={"/assets/images/home/casual.png"}
+            dynamicClass={" hover:bg-[right_10px_top_-5px]"}
+          />
+          <CategoryCard
+            cardText={"Formal"}
+            cardImage={"/assets/images/home/formal.png"}
+            dynamicClass={
+              "bg-[right_-80px_top_-25px] hover:bg-[right_-70px_top_-30px]"
+            }
+          />
+          <CategoryCard
+            cardText={"Athletics"}
+            cardImage={"/assets/images/home/athletics.png"}
+            dynamicClass={
+              "bg-[right_-70px_top] hover:bg-[right_-60px_top_-5px]"
+            }
+          />
+          <CategoryCard
+            cardText={"Swimwear"}
+            cardImage={"/assets/images/home/swimwear.png"}
+            dynamicClass={
+              "bg-[right_-70px_top] hover:bg-[right_-60px_top_-5px]"
+            }
+          />
+        </div>
+      </SectionContainer>
+
+      <SectionContainer>
+        <SectionHeading
+          text={"How we're doing?"}
+          dynamicClass={"text-center"}
+        />
+        <div className="grid gap-y-[36px]">
+          <ReviewCard
+            cardName={"Kayle R."}
+            cardReview={
+              "I had such a smooth experience shopping here! The website is easy to navigate, and I found exactly what I was looking for without any hassle. My order arrived quickly and was beautifully packaged. I also loved the personal touch in the packaging with a handwritten thank-you note. Will definitely be shopping here !"
+            }
+            cardDate={"August 15, 2024"}
+          />
+          <ReviewCard
+            cardName={"Sean T."}
+            cardReview={
+              "Fantastic service! I had a question about sizing, and their customer support team was super helpful and quick to respond. They helped me choose the right size, and the shipping was faster than expected. It’s rare to find such excellent customer service these days—definitely a loyal customer now!"
+            }
+            cardDate={"May 19, 2024"}
+          />
+          <ReviewCard
+            cardName={"Mary B."}
+            cardReview={
+              "Great experience overall! The website is very user-friendly, and I appreciate the wide range of payment options. I was a bit worried about shipping delays due to the holidays, but my order arrived on time, and everything was exactly as described. My only suggestion would be to add more details on fabric care for some of the items, but otherwise, I’m very happy!"
+            }
+            cardDate={"February 6, 2024"}
+          />
+        </div>
+        <OutlineButton text={"More Reviews"} />
+      </SectionContainer>
     </div>
   );
 };

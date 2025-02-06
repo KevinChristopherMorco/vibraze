@@ -15,7 +15,7 @@ const FooterIcons = ({ icon }) => {
 const FooterLists = ({ listTitle, listItems }) => {
   return (
     <div className="flex flex-col gap-4">
-      <h4 className="text-xl tracking-[.3rem]">{listTitle}</h4>
+      <h4 className="font-semibold tracking-[.1rem]">{listTitle}</h4>
       <ul className="flex flex-col gap-y-1">
         {listItems?.map((item, index) => {
           return (
@@ -74,7 +74,7 @@ const Footer = () => {
           <FooterIcons icon={<RiInstagramLine className="h-5 w-5" />} />
           <FooterIcons icon={<RiPinterestLine className="h-5 w-5" />} />
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-y-[24px]">
+        <div className="grid grid-cols-2 gap-x-[20px] gap-y-[24px]">
           {/* <div className="flex flex-col gap-4">
             <h4 className="text-xl tracking-[.3rem]">Company</h4>
             <ul className="flex flex-col gap-y-1">

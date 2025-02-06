@@ -1,12 +1,15 @@
 import React from "react";
-import PrimaryButton from "../../components/buttons/PrimaryButton";
-import SectionHeading from "../../components/headings/SectionHeading";
-import { RiStarFill, RiVerifiedBadgeFill } from "@remixicon/react";
-import FeaturedCard from "../../components/cards/FeaturedCard";
+import "swiper/css";
+import { SwiperSlide } from "swiper/react";
 import OutlineButton from "../../components/buttons/OutlineButton";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
 import CategoryCard from "../../components/cards/CategoryCard";
+import FeaturedCard from "../../components/cards/FeaturedCard";
 import ReviewCard from "../../components/cards/ReviewCard";
+import GridContainer from "../../components/containers/GridContainer";
 import SectionContainer from "../../components/containers/SectionContainer";
+import SectionHeading from "../../components/headings/SectionHeading";
+import SwiperContainer from "../../components/containers/SwiperContainer";
 
 const HomeStat = ({ number, text }) => {
   return (
@@ -21,12 +24,15 @@ const HomeStat = ({ number, text }) => {
 
 const Home = () => {
   return (
-    <div className="col-span-4 grid gap-y-[54px] md:col-span-8">
-      <section className="grid gap-y-[32px] md:grid-cols-[2.5fr_1.5fr] md:gap-6">
+    <div className="col-span-4 grid gap-y-[54px] md:col-span-8 lg:col-span-12 lg:gap-y-[120px]">
+      <section className="grid gap-y-[32px] md:grid-cols-[2.5fr_1.5fr] md:gap-6 lg:grid-cols-2 lg:gap-y-[86px]">
         <div className="flex flex-col gap-y-[28px]">
           <div>
             <h1 className="font-poppins text-5xl font-black text-black">
-              Wear Confidence.
+              Wear
+            </h1>
+            <h1 className="font-poppins text-5xl font-black text-black">
+              Confidence.
             </h1>
             <h1 className="font-poppins text-5xl font-black text-[--primary-color]">
               Feel
@@ -42,7 +48,7 @@ const Home = () => {
             ready to take on the world.
           </p>
           <PrimaryButton text={"shop now"} dynamicClass={"uppercase"} />
-          <div className="flex flex-wrap justify-center gap-x-[24px] gap-y-[36px] md:justify-start md:gap-x-[14px]">
+          <div className="flex flex-wrap justify-center gap-x-[24px] gap-y-[36px] md:justify-start md:gap-x-[14px] lg:justify-between lg:gap-x-0">
             <HomeStat number={"220"} text={"Branches Worldwide"} />
             <HomeStat number={"25"} text={"International Partners"} />
             <HomeStat number={"1M+"} text={"Satisfied Customers"} />
@@ -98,96 +104,112 @@ const Home = () => {
           text={"Stylist's Choice"}
           dynamicClass={"text-center"}
         />
-        <div className="grid grid-cols-4 gap-x-4 md:grid-cols-8">
-          <FeaturedCard
-            productName={"Cotton Shirt"}
-            productPrice={"$120"}
-            productImage={"/assets/images/products/cotton-shirt.png"}
-            dynamicClass={"col-span-2"}
-          />
-          <FeaturedCard
-            productName={"Polo Shirt"}
-            productPrice={"$220"}
-            productImage={"/assets/images/products/polo-shirt.png"}
-            dynamicClass={"col-span-2"}
-          />
-        </div>
+        <SwiperContainer>
+          <SwiperSlide>
+            <FeaturedCard
+              productName={"Cotton Shirt"}
+              productPrice={"$120"}
+              productImage={"/assets/images/products/cotton-shirt.png"}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <FeaturedCard
+              productName={"Polo Shirt"}
+              productPrice={"$220"}
+              productImage={"/assets/images/products/polo-shirt.png"}
+            />
+          </SwiperSlide>
+        </SwiperContainer>
         <OutlineButton text={"View All"} />
       </SectionContainer>
 
       <SectionContainer>
         <SectionHeading text={"New Arrivals"} dynamicClass={"text-center"} />
-        <div className="grid grid-cols-4 gap-x-4 md:grid-cols-8">
-          <FeaturedCard
-            productName={"CHIC Designed Shirt"}
-            productPrice={"$330"}
-            productImage={"/assets/images/products/chic-shirt.png"}
-            dynamicClass={"col-span-2"}
-          />
-          <FeaturedCard
-            productName={"Baggy Jeans"}
-            productPrice={"$120"}
-            productImage={"/assets/images/products/baggy-jeans.png"}
-            dynamicClass={"col-span-2"}
-            hasDiscount={true}
-            productDiscountPrice={"$180"}
-            productDiscountPercent={"33%"}
-          />
-        </div>
+        <SwiperContainer>
+          <SwiperSlide>
+            <FeaturedCard
+              productName={"CHIC Designed Shirt"}
+              productPrice={"$330"}
+              productImage={"/assets/images/products/chic-shirt.png"}
+              dynamicClass={"col-span-2"}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <FeaturedCard
+              productName={"Baggy Jeans"}
+              productPrice={"$120"}
+              productImage={"/assets/images/products/baggy-jeans.png"}
+              dynamicClass={"col-span-2"}
+              hasDiscount={true}
+              productDiscountPrice={"$180"}
+              productDiscountPercent={"33%"}
+            />
+          </SwiperSlide>
+        </SwiperContainer>
         <OutlineButton text={"View All"} />
       </SectionContainer>
       <SectionContainer>
         <SectionHeading text={"Hot Items"} dynamicClass={"text-center"} />
-        <div className="grid grid-cols-4 gap-x-4 md:grid-cols-8">
-          <FeaturedCard
-            productName={"Cotton Crew Neck"}
-            productPrice={"$170"}
-            productImage={"/assets/images/products/crew-neck.png"}
-            dynamicClass={"col-span-2"}
-          />
-          <FeaturedCard
-            productName={"Vote Designed Shirt"}
-            productPrice={"$150"}
-            productImage={"/assets/images/products/vote-shirt.png"}
-            dynamicClass={"col-span-2"}
-            hasDiscount={true}
-            productDiscountPrice={"$220"}
-            productDiscountPercent={"32%"}
-          />
-        </div>
+        <SwiperContainer>
+          <SwiperSlide>
+            <FeaturedCard
+              productName={"Cotton Crew Neck"}
+              productPrice={"$170"}
+              productImage={"/assets/images/products/crew-neck.png"}
+              dynamicClass={"col-span-2"}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <FeaturedCard
+              productName={"Vote Designed Shirt"}
+              productPrice={"$150"}
+              productImage={"/assets/images/products/vote-shirt.png"}
+              dynamicClass={"col-span-2"}
+              hasDiscount={true}
+              productDiscountPrice={"$220"}
+              productDiscountPercent={"32%"}
+            />
+          </SwiperSlide>
+        </SwiperContainer>
         <OutlineButton text={"View All"} />
       </SectionContainer>
 
       <SectionContainer>
         <SectionHeading text={"Find your Fit"} dynamicClass={"text-center"} />
-        <div className="grid gap-y-[36px]">
+        <GridContainer
+          dynamicClass={
+            "xl:h-[400px] gap-y-[36px] md:gap-[16px] xl:grid-rows-4 xl:gap-1"
+          }
+        >
           <CategoryCard
             cardText={"Casual"}
             cardImage={"/assets/images/home/casual.png"}
-            dynamicClass={" hover:bg-[right_10px_top_-5px]"}
+            dynamicClass={
+              "hover:bg-[right_10px_top_-5px] xl:row-start-1 xl:col-span-4 xl:col-start-1 xl:row-span-4"
+            }
           />
           <CategoryCard
             cardText={"Formal"}
             cardImage={"/assets/images/home/formal.png"}
             dynamicClass={
-              "bg-[right_-80px_top_-25px] hover:bg-[right_-70px_top_-30px]"
+              "bg-[right_-80px_top_-25px] hover:bg-[right_-70px_top_-30px] xl:row-start-1 xl:col-span-4 xl:col-start-5 xl:row-span-2"
             }
           />
           <CategoryCard
             cardText={"Athletics"}
             cardImage={"/assets/images/home/athletics.png"}
             dynamicClass={
-              "bg-[right_-70px_top] hover:bg-[right_-60px_top_-5px]"
+              "bg-[right_-70px_top] hover:bg-[right_-60px_top_-5px] xl:row-start-3 xl:col-span-4 xl:col-start-5 xl:row-span-2"
             }
           />
           <CategoryCard
             cardText={"Swimwear"}
             cardImage={"/assets/images/home/swimwear.png"}
             dynamicClass={
-              "bg-[right_-70px_top] hover:bg-[right_-60px_top_-5px]"
+              "bg-[right_-70px_top] hover:bg-[right_-60px_top_-5px] xl:row-start-1 xl:col-span-4 xl:col-start-9 xl:row-span-4"
             }
           />
-        </div>
+        </GridContainer>
       </SectionContainer>
 
       <SectionContainer>
@@ -195,7 +217,7 @@ const Home = () => {
           text={"How we're doing?"}
           dynamicClass={"text-center"}
         />
-        <div className="grid gap-y-[36px]">
+        <GridContainer dynamicClass={"gap-[16px] lg:gap-[32px]"}>
           <ReviewCard
             cardName={"Kayle R."}
             cardReview={
@@ -217,7 +239,7 @@ const Home = () => {
             }
             cardDate={"February 6, 2024"}
           />
-        </div>
+        </GridContainer>
         <OutlineButton text={"More Reviews"} />
       </SectionContainer>
     </div>

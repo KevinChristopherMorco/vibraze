@@ -9,7 +9,7 @@ const NavbarList = ({ text }) => {
 const Navbar = () => {
   const { sm, md, isLargeScreen } = useScreenResponsive();
   return (
-    <nav className="flex items-center justify-between px-[20px] py-[1rem] md:px-[32px] lg:px-[160px]">
+    <nav className="flex items-center justify-between px-[20px] py-[1rem] md:px-[32px] xl:px-[160px] 2xl:px-[320px]">
       {sm && (
         <>
           <h1 className="font-poppins text-4xl font-black uppercase">
@@ -21,7 +21,7 @@ const Navbar = () => {
 
       {(md || isLargeScreen) && (
         <>
-          <h1 className="font-poppins text-4xl font-black uppercase">
+          <h1 className="font-poppins text-4xl font-black uppercase 2xl:text-5xl">
             VIBRAZE
           </h1>
           <ul className="flex items-center md:gap-6 xl:gap-16">

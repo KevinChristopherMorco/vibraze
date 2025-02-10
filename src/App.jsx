@@ -4,6 +4,8 @@ import MainLayout from "./pages/MainLayout";
 
 import "typeface-roboto-condensed";
 import "typeface-poppins";
+import SignUp from "./pages/SignUp/SignUp";
+import SignIn from "./pages/SignUp/SignIn";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-in" element={<SignIn />} />
 
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>

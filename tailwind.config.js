@@ -10,12 +10,22 @@ export default {
       },
       keyframes: {
         "slide-left": {
+          from: { transform: "translateX(100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "slide-right": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(100%)" },
+        },
+        "slide-left-infinite": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
         },
       },
       animation: {
-        "slide-left-infinite": "slide-left 8s linear infinite",
+        "slide-left": "slide-left 0.7s ease-in-out",
+        "slide-right": "slide-right 0.7s ease-in-out",
+        "slide-left-infinite": "slide-left-infinite 12s linear infinite",
       },
     },
   },

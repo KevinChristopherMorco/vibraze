@@ -6,19 +6,20 @@ import PrimaryButton from "../../components/buttons/PrimaryButton";
 import CategoryCard from "../../components/cards/CategoryCard";
 import FeaturedCard from "../../components/cards/FeaturedCard";
 import ReviewCard from "../../components/cards/ReviewCard";
-import GridContainer from "../../components/containers/GridContainer";
-import SectionContainer from "../../components/containers/SectionContainer";
-import SectionHeading from "../../components/headings/SectionHeading";
+import SubgridContainer from "../../components/containers/SubgridContainer";
 import SwiperContainer from "../../components/containers/SwiperContainer";
+import SectionHeading from "../../components/headings/SectionHeading";
 import useScreenResponsive from "../../hooks/useScreenResponsive";
 
 const HomeStat = ({ number, text }) => {
   return (
     <div className="flex flex-col items-center">
-      <h4 className="text-[3rem] font-black leading-none text-[--primary-color]">
+      <h4 className="text-[3rem] font-black leading-none text-[--primary-color] md:text-[2.5rem] xl:text-[3rem] 2xl:text-[3.75rem]">
         {number}
       </h4>
-      <p className="md:text-center md:text-sm">{text}</p>
+      <p className="md:text-center md:text-[.8rem] xl:text-base 2xl:text-[1rem]">
+        {text}
+      </p>
     </div>
   );
 };
@@ -26,24 +27,27 @@ const HomeStat = ({ number, text }) => {
 const Home = () => {
   const { sm, md, isLargeScreen } = useScreenResponsive();
   return (
-    <div className="col-span-4 grid gap-y-[54px] md:col-span-8 xl:col-span-12 xl:gap-y-[80px]">
-      <section className="grid md:grid-cols-[1.5fr_1.5fr] md:grid-rows-[550px] md:gap-6 md:gap-y-0 xl:grid-cols-2">
-        <div className="flex flex-col gap-y-[28px] lg:place-self-center">
+    <>
+      <SubgridContainer
+        type={"section"}
+        dynamicClass={"content-start h-fit relative"}
+      >
+        <div className="col-span-full flex flex-col gap-y-[28px] md:col-span-4 lg:place-self-center xl:col-span-6">
           <div>
-            <h1 className="font-poppins text-5xl font-black text-black md:text-6xl">
+            <h1 className="font-poppins text-5xl font-black uppercase text-black md:text-6xl 2xl:text-7xl">
               Wear
             </h1>
-            <h1 className="font-poppins text-5xl font-black text-black md:text-6xl">
+            <h1 className="font-poppins text-5xl font-black uppercase text-black md:text-6xl 2xl:text-7xl">
               Confidence.
             </h1>
-            <h1 className="font-poppins text-5xl font-black text-[--primary-color] md:text-6xl">
+            <h1 className="font-poppins text-5xl font-black uppercase text-[--primary-color] md:text-6xl 2xl:text-7xl">
               Feel
             </h1>
-            <h1 className="font-poppins text-5xl font-black text-[--primary-color] md:text-6xl">
+            <h1 className="font-poppins text-5xl font-black uppercase text-[--primary-color] md:text-6xl 2xl:text-7xl">
               Amazing.
             </h1>
           </div>
-          <p>
+          <p className="2xl:text-lg">
             Discover the latest trends and timeless pieces that empower you to
             express yourself. From everyday essentials to standout styles, our
             collection is designed to make you feel confident, comfortable, and
@@ -53,7 +57,7 @@ const Home = () => {
             text={"shop now"}
             dynamicClass={"uppercase lg:w-[50%]"}
           />
-          <div className="flex flex-wrap justify-center gap-x-[24px] gap-y-[36px] md:justify-between md:gap-x-[14px] md:pb-4 lg:justify-between lg:gap-x-0 2xl:justify-start 2xl:gap-[64px]">
+          <div className="flex flex-wrap justify-center gap-x-[24px] gap-y-[36px] md:flex-nowrap md:justify-between md:gap-x-[14px] md:pb-10 lg:justify-between lg:gap-x-0 2xl:justify-start 2xl:gap-[64px]">
             <HomeStat number={"220"} text={"Branches Worldwide"} />
             <HomeStat number={"25"} text={"International Partners"} />
             <HomeStat number={"1M+"} text={"Satisfied Customers"} />
@@ -63,98 +67,93 @@ const Home = () => {
         <img
           src="/assets/images/home/hero-img.png"
           alt=""
-          className="row-start-2 md:col-start-2 md:row-start-1 md:h-full md:w-full md:place-self-end md:object-contain"
+          className="col-span-4 md:absolute md:-top-14 md:col-span-4 md:col-start-5 md:h-full xl:col-span-6 xl:col-start-7"
         />
 
-        <GridContainer
-          dynamicClass={
-            "gap-[16px] lg:gap-[32px] -mx-[20px] md:col-span-2 md:mx-0"
-          }
-        >
-          <section class="col-span-4 bg-black text-white md:col-span-12 md:rounded-md">
-            <div className="py-10">
-              <h2 class="mb-2 text-center text-3xl font-bold leading-8">
-                Our Partners
-              </h2>
-              <p class="text-center text-lg font-extralight leading-8">
-                Partnered with some of the most recognized and respected brands
-                worldwide.
-              </p>
+        <section class="z-[99] col-span-4 -mx-[20px] flex flex-col gap-10 bg-black py-6 text-white md:col-span-12 md:row-start-2 md:-mx-[32px] md:gap-4 md:rounded-md xl:-mx-[160px] 2xl:-mx-[320px]">
+          <div className="px-2">
+            <h2 class="mb-2 text-center text-3xl font-bold leading-8">
+              Our Partners
+            </h2>
+            <p class="text-center font-extralight leading-8">
+              Partnered with some of the most recognized and respected brands
+              worldwide.
+            </p>
+          </div>
+          <div class="logos group relative overflow-hidden whitespace-nowrap [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)] md:py-4">
+            <div class="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
+              <img
+                src="/assets/images/home/HM-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Levis-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Obey-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Puma-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Adidas-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Uniqlo-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
             </div>
-            <div class="logos group relative overflow-hidden whitespace-nowrap py-10 [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)] md:py-4">
-              <div class="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
-                <img
-                  src="/assets/images/home/HM-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Levis-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Obey-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Puma-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Adidas-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Uniqlo-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-              </div>
 
-              <div class="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
-                <img
-                  src="/assets/images/home/HM-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Levis-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Obey-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Puma-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Adidas-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-                <img
-                  src="/assets/images/home/Uniqlo-Logo.png"
-                  alt="logo"
-                  className="mx-8 inline w-[90px] lg:w-[100px] 2xl:w-[110px]"
-                />
-              </div>
+            <div class="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
+              <img
+                src="/assets/images/home/HM-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Levis-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Obey-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Puma-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Adidas-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
+              <img
+                src="/assets/images/home/Uniqlo-Logo.png"
+                alt="logo"
+                className="mx-8 inline w-[90px] lg:w-[100px] xl:mx-14 2xl:mx-28 2xl:w-[110px]"
+              />
             </div>
-          </section>
-        </GridContainer>
-      </section>
-      <SectionContainer>
+          </div>
+        </section>
+      </SubgridContainer>
+
+      <SubgridContainer type={"section"} dynamicClass={"gap-y-[36px]"}>
         <SectionHeading
           text={"Stylist's Choice"}
-          dynamicClass={"text-center"}
+          dynamicClass={"text-center col-span-full"}
         />
         <SwiperContainer>
           <SwiperSlide>
@@ -171,22 +170,32 @@ const Home = () => {
               productImage={"/assets/images/products/polo-shirt.png"}
             />
           </SwiperSlide>
+          <SwiperSlide>
+            <FeaturedCard
+              productName={"Polo Shirt"}
+              productPrice={"$220"}
+              productImage={"/assets/images/products/polo-shirt.png"}
+            />
+          </SwiperSlide>
         </SwiperContainer>
         <OutlineButton
           text={"View All"}
-          dynamicClass={"md:w-[50%] md:justify-self-center xl:w-[40%]"}
+          dynamicClass={
+            "md:w-[50%] md:justify-self-center xl:w-[40%] col-span-full"
+          }
         />
-      </SectionContainer>
-
-      <SectionContainer>
-        <SectionHeading text={"New Arrivals"} dynamicClass={"text-center"} />
+      </SubgridContainer>
+      <SubgridContainer type={"section"} dynamicClass={"gap-y-[36px] "}>
+        <SectionHeading
+          text={"New Arrivals"}
+          dynamicClass={"text-center col-span-full"}
+        />
         <SwiperContainer>
           <SwiperSlide>
             <FeaturedCard
               productName={"CHIC Designed Shirt"}
               productPrice={"$330"}
               productImage={"/assets/images/products/chic-shirt.png"}
-              dynamicClass={"col-span-2"}
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -194,7 +203,6 @@ const Home = () => {
               productName={"Baggy Jeans"}
               productPrice={"$120"}
               productImage={"/assets/images/products/baggy-jeans.png"}
-              dynamicClass={"col-span-2"}
               hasDiscount={true}
               productDiscountPrice={"$180"}
               productDiscountPercent={"33%"}
@@ -203,11 +211,16 @@ const Home = () => {
         </SwiperContainer>
         <OutlineButton
           text={"View All"}
-          dynamicClass={"md:w-[50%] md:justify-self-center xl:w-[40%]"}
+          dynamicClass={
+            "md:w-[50%] md:justify-self-center xl:w-[40%] col-span-full"
+          }
         />
-      </SectionContainer>
-      <SectionContainer>
-        <SectionHeading text={"Hot Items"} dynamicClass={"text-center"} />
+      </SubgridContainer>
+      <SubgridContainer type={"section"} dynamicClass={"gap-y-[36px]"}>
+        <SectionHeading
+          text={"Hot Items"}
+          dynamicClass={"text-center col-span-full"}
+        />
         <SwiperContainer>
           <SwiperSlide>
             <FeaturedCard
@@ -231,17 +244,15 @@ const Home = () => {
         </SwiperContainer>
         <OutlineButton
           text={"View All"}
-          dynamicClass={"md:w-[50%] md:justify-self-center xl:w-[40%]"}
-        />
-      </SectionContainer>
-
-      <SectionContainer>
-        <SectionHeading text={"Find your Fit"} dynamicClass={"text-center"} />
-        <GridContainer
           dynamicClass={
-            "lg:h-[450px] lg:grid-cols-9 xl:h-[400px] gap-y-[36px] md:gap-[16px] xl:grid-rows-4 xl:gap-1 2xl:h-[550px]"
+            "md:w-[50%] md:justify-self-center xl:w-[40%] col-span-full"
           }
-        >
+        />
+      </SubgridContainer>
+
+      <div className="col-span-full grid gap-y-[36px]">
+        <SectionHeading text={"Find your Fit"} dynamicClass={"text-center"} />
+        <section className="grid grid-cols-4 gap-y-[36px] md:grid-cols-8 md:gap-[16px] lg:h-[450px] xl:h-[400px] xl:grid-cols-12 xl:grid-rows-4 xl:gap-1 2xl:h-[550px]">
           <CategoryCard
             cardText={"Casual"}
             cardImage={"/assets/images/home/casual.png"}
@@ -270,15 +281,18 @@ const Home = () => {
               "bg-[right_-70px_top] hover:bg-[right_-60px_top_-5px] lg:hover:bg-[right_-90px_top_-5px] lg:bg-[right_-100px_top] lg:col-span-3 lg:col-start-7 lg:row-span-4 lg:row-start-1 xl:row-start-1 xl:col-span-4 xl:col-start-9 xl:row-span-4"
             }
           />
-        </GridContainer>
-      </SectionContainer>
+        </section>
+      </div>
 
-      <SectionContainer>
+      <SubgridContainer type={"section"} dynamicClass={"gap-y-[36px]"}>
         <SectionHeading
           text={"How we're doing?"}
-          dynamicClass={"text-center"}
+          dynamicClass={"text-center col-span-full"}
         />
-        <GridContainer dynamicClass={"gap-[16px] lg:gap-[32px]"}>
+        <SubgridContainer
+          type={"div"}
+          dynamicClass={"gap-[16px] lg:gap-[32px] col-span-full"}
+        >
           <ReviewCard
             cardName={"Kayle R."}
             cardReview={
@@ -300,90 +314,15 @@ const Home = () => {
             }
             cardDate={"February 6, 2024"}
           />
-        </GridContainer>
+        </SubgridContainer>
         <OutlineButton
           text={"More Reviews"}
-          dynamicClass={"md:w-[50%] md:justify-self-center xl:w-[40%]"}
+          dynamicClass={
+            "md:w-[50%] md:justify-self-center xl:w-[40%] col-span-full"
+          }
         />
-      </SectionContainer>
-
-      {/* <section class="bg-black pb-4 pt-8 text-white">
-        <h2 class="mb-2 text-center text-2xl font-bold leading-8">
-          Our Clients
-        </h2>
-        <p class="text-center text-lg font-extralight leading-8">
-          We are trusted by the world’s most innovative teams
-        </p>
-
-        <div class="logos group relative overflow-hidden whitespace-nowrap py-10 [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)]">
-          <div class="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-white.svg"
-              alt="Transistor"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-white.svg"
-              alt="Reform"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-white.svg"
-              alt="Tuple"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-white.svg"
-              alt="SavvyCal"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-white.svg"
-              alt="SavvyCal"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/laravel-logo-white.svg"
-              alt="SavvyCal"
-            />
-          </div>
-
-          <div class="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/transistor-logo-white.svg"
-              alt="Transistor"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/reform-logo-white.svg"
-              alt="Reform"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/tuple-logo-white.svg"
-              alt="Tuple"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-white.svg"
-              alt="SavvyCal"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/statamic-logo-white.svg"
-              alt="SavvyCal"
-            />
-            <img
-              class="mx-4 inline h-16"
-              src="https://tailwindui.com/plus/img/logos/158x48/laravel-logo-white.svg"
-              alt="SavvyCal"
-            />
-          </div>
-        </div>
-      </section> */}
-    </div>
+      </SubgridContainer>
+    </>
   );
 };
 

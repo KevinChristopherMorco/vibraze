@@ -6,14 +6,14 @@ const SwiperContainer = ({ children }) => {
     <Swiper
       slidesPerView={2}
       spaceBetween={16}
-      className="w-full"
+      className="col-span-full w-full"
       breakpoints={{
         640: {
           slidesPerView: 2,
           spaceBetween: 16,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 4,
           spaceBetween: 16,
         },
         1024: {
@@ -21,7 +21,7 @@ const SwiperContainer = ({ children }) => {
           spaceBetween: 32,
         },
         1920: {
-          slidesPerView: 5,
+          slidesPerView: 4,
           spaceBetween: 32,
         },
       }}

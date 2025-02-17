@@ -6,6 +6,7 @@ import "typeface-roboto-condensed";
 import "typeface-poppins";
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignUp/SignIn";
+import ProductView from "./pages/Product/ProductView";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/:productName" element={<ProductView />} />
 
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>

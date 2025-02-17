@@ -7,8 +7,12 @@ const NavbarList = ({ text }) => {
   return <li className="cursor-pointer">{text}</li>;
 };
 
-const Navbar = () => {
+const Navbar = ({ setToggle, setMenuVisible }) => {
   const { sm, md, isLargeScreen } = useScreenResponsive();
+  const openMenu = () => {
+    setToggle(true);
+    setMenuVisible(true);
+  };
   return (
     <nav className="flex items-center justify-between px-[20px] py-[1rem] md:px-[32px] xl:px-[160px] 2xl:px-[320px]">
       {sm && (
@@ -18,7 +22,7 @@ const Navbar = () => {
               VIBRAZE
             </h1>
           </Link>
-          <RiMenuFill className="h-6 w-6" />
+          <RiMenuFill onClick={openMenu} className="h-6 w-6" />
         </>
       )}
 

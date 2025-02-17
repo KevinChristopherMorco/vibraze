@@ -11,12 +11,12 @@ const FeaturedCard = ({
   productDiscountPercent,
 }) => {
   return (
-    <div className={`${dynamicClass} group`}>
-      <div className="flex h-[180px] w-full cursor-pointer items-center justify-center rounded-lg bg-[#E4E3E3] p-4">
+    <div className={`${dynamicClass} group flex flex-col`}>
+      <div className="flex h-[180px] w-full cursor-pointer items-center justify-center rounded-lg bg-[#E4E3E3] p-4 xl:h-[270px]">
         <img
           src={productImage}
           alt={productName}
-          className="object-fit h-full w-full transition-all group-hover:scale-110"
+          className="h-full w-full transition-all group-hover:scale-110"
         />
       </div>
       <div className="flex flex-col gap-1">

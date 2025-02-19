@@ -24,6 +24,6 @@
   }
   body,
   #root {
-    @apply relative min-h-full;
+    @apply relative grid min-h-full;
   }
 }
